@@ -1,0 +1,36 @@
+[project]
+name = "carecircle"
+version = "1.0.0"
+description = "Elderly Care & Medication Management Platform with respectful Care Chain coordination"
+requires-python = ">=3.11,<3.12"
+
+[tool.ruff]
+target-version = "py311"
+line-length = 100
+src = ["core", "services", "repositories", "integrations", "ui", "pages", "scripts", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP", "S", "BLE", "SIM"]
+ignore = ["S101", "E501"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**" = ["S105", "S106", "S108", "S603", "S607"]
+"scripts/**" = ["S105", "S106"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra --strict-markers"
+markers = [
+    "unit: fast isolated unit tests without network or database",
+    "integration: integration tests across services and repositories",
+    "postgres: tests against a real ephemeral PostgreSQL instance",
+    "accessibility: UI CSS, contrast, and accessibility contract tests",
+]
+
+[tool.coverage.run]
+source = ["core", "services"]
+branch = true
+
+[tool.coverage.report]
+show_missing = true
+fail_under = 90

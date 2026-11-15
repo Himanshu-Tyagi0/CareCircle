@@ -1,0 +1,10 @@
+{
+  "name": "CareCircle",
+  "description": "Elderly Care & Medication Management Platform with respectful Care Chain escalation, elder-controlled consent, daily check-ins, and bilingual English/Hindi support.",
+  "requestFramePermissions": [
+    "microphone"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
